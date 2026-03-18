@@ -89,7 +89,7 @@ Tell the user you're ready to draft, and briefly summarize what you've captured 
 
 ## Phase 2: Write the BRIEF.md
 
-Write `BRIEF.md` in the repo root. Use this exact structure:
+Write `docs/BRIEF.md`. Create the `docs/` directory if it doesn't exist. Use this exact structure:
 
 ```markdown
 # [Product Name] — Product Brief
@@ -178,33 +178,46 @@ Once the brief is approved, scaffold the repo structure. Create the following di
 
 ```
 /
-├── BRIEF.md                        ← Already written
-├── PRD.md                          ← Placeholder only (see note below)
+├── docs/
+│   ├── BRIEF.md                    ← Already written
+│   ├── ARCH.md                     ← Placeholder (filled in by app-architect)
+│   └── prd/
+│       └── README.md               ← PRD index placeholder
 ├── prototypes/                     ← Concept experiments
 │   └── README.md
 └── src/                            ← App code (populated after PRD is finalized)
     └── .gitkeep
 ```
 
-**For `PRD.md`**: Create a placeholder that maps directly to the prototype map in BRIEF.md. Format:
+**For `docs/ARCH.md`**: Create a placeholder that signals the next step:
 
 ```markdown
-# PRD — [Product Name]
+# [Product Name] — Architecture
 
-> ⚠️ This PRD is a placeholder. It will be finalized once the open questions in BRIEF.md are answered through prototyping.
+> ⚠️ Architecture not yet defined. Run the `app-architect` skill once critical prototypes are complete.
+
+See `docs/BRIEF.md` for product context and open questions that should be resolved before architecture is finalized.
+```
+
+**For `docs/prd/README.md`**: Create a placeholder that maps directly to the prototype map in BRIEF.md. Format:
+
+```markdown
+# PRDs — [Product Name]
+
+> ⚠️ No PRDs yet. PRDs should be written after open questions in BRIEF.md are answered through prototyping and architecture is defined in ARCH.md.
 
 ## Status: Pre-PRD
 
-The following open questions must be resolved before this PRD can be fully scoped:
+The following open questions must be resolved before feature PRDs can be fully scoped:
 
 [List each 🔴 and 🟡 question from BRIEF.md with a link to its prototype in /prototypes]
 
-## Once ready, this PRD will cover:
+## Once ready, PRDs will cover:
 - [ ] [High-level feature area 1 — inferred from brief]
 - [ ] [High-level feature area 2]
 - ...
 
-See BRIEF.md for full context.
+See `docs/BRIEF.md` and `docs/ARCH.md` for full context.
 ```
 
 **For `prototypes/README.md`**: List each prototype from the BRIEF.md prototype map as a stub entry, so it's clear what needs to be built:
@@ -212,7 +225,7 @@ See BRIEF.md for full context.
 ```markdown
 # Prototypes
 
-Each prototype here corresponds to an open question in BRIEF.md.
+Each prototype here corresponds to an open question in docs/BRIEF.md.
 
 ## Planned Prototypes
 
@@ -229,6 +242,6 @@ Each prototype here corresponds to an open question in BRIEF.md.
 After scaffolding, give the user a brief summary:
 - What's in the brief (highlight the most important open questions)
 - What prototypes they should build first (the 🔴 ones)
-- What to do next: build the prototypes, answer the questions, then come back to finalize the PRD
+- What to do next: build the prototypes, answer the open questions, then run `app-architect` to define the tech stack, then write feature PRDs
 
-Remind them: the PRD should not be written until the 🔴 open questions are answered. The prototypes exist to make the PRD honest.
+Remind them: `docs/ARCH.md` and feature PRDs should not be written until the 🔴 open questions are answered. The prototypes exist to make both the architecture and the PRDs honest.

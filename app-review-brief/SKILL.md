@@ -22,7 +22,7 @@ The brief was written with imperfect information. Prototyping is how you get bet
 
 ## Phase 1: Read the Brief
 
-Read the existing `BRIEF.md`. Note:
+Read the existing `docs/BRIEF.md`. Note:
 - All open questions (especially 🔴 and 🟡)
 - All assumptions
 - The prototype map — what was planned and why
@@ -90,7 +90,7 @@ Ask: *"Does this match what you're thinking? Anything I missed?"*
 
 ## Phase 4: Rewrite BRIEF.md
 
-Rewrite `BRIEF.md` in place with all changes applied. Preserve the same structure and formatting. Specific rules:
+Rewrite `docs/BRIEF.md` in place with all changes applied. Preserve the same structure and formatting. Specific rules:
 
 - **Open Questions**: remove answered questions, update changed ones, add new ones with appropriate priority
 - **Prototype Map**: mark completed prototypes `[x]`; remove entries for answered questions; add new entries for new 🔴/🟡 questions (as `- [ ]`)
@@ -108,3 +108,4 @@ After rewriting, give the user a short summary:
 - What changed and why
 - Which open questions remain (especially 🔴)
 - Whether there are new prototypes to build before the PRD can be written
+- If all 🔴 questions are answered, suggest running `app-architect` next to define the tech stack before writing feature PRDs
