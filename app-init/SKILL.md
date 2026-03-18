@@ -1,11 +1,11 @@
 ---
 name: app-init
-description: Sets up a new app project from scratch through structured discovery. Use this skill whenever a user wants to start a new app, initialize a project repo, create a product brief, scaffold a project structure, or says things like "I want to build an app", "help me start a new project", "let's kick off a new product", or "I have an idea for an app". Also trigger when a user wants to refine or challenge an existing product brief, map open questions to prototypes, or prepare a project for a Ralph Loop build. This skill is especially valuable when the user has a rough idea but hasn't fully thought it through — actively probe gaps and challenge assumptions to produce a rigorous BRIEF.md and scaffolded repo.
+description: Initialize a new app project through structured discovery. Trigger when a user wants to start a new app, scaffold a project, or create a product brief — e.g. "I want to build an app", "help me start a new project", "I have an idea for an app". Also trigger when a user wants to refine an existing brief before prototyping. Produces a BRIEF.md, prototype map, and scaffolded repo.
 ---
 
 # App Init
 
-A skill for turning a rough product idea into a solid foundation: a battle-tested `BRIEF.md`, a mapped set of open questions tied to prototypes, and a scaffolded repo ready for a Ralph Loop build.
+A skill for turning a rough product idea into a solid foundation: a `BRIEF.md` that defines constraints clearly, a mapped set of open questions tied to prototypes, and a scaffolded repo.
 
 The most important output is the `BRIEF.md`. Everything else (folder structure, prototype mapping) exists to serve it.
 
@@ -66,6 +66,7 @@ The goal is to surface things that need to be *experienced* to be understood —
 - Is this web, mobile, API, CLI, or something else?
 - Are there any critical integrations or dependencies?
 - Is there a data model that's central to the product?
+- How do you see this being built incrementally? What's the MVP vs. later phases?
 
 As you probe, maintain a running internal list of:
 - Things that are **decided** (the user is committed to these)
@@ -105,13 +106,13 @@ Write `BRIEF.md` in the repo root. Use this exact structure:
 [Primary user. Secondary users if relevant. What they care about.]
 
 ## Goals
-[What success looks like. Measurable where possible.]
+- **[Feature/Area]** - [what success looks like for it]
 
 ## Non-Goals
-[Explicit scope exclusions. What this is not trying to do.]
+- **[Topic]** - [what we're explicitly not doing]
 
 ## Key Differentiators
-[Where this diverges from the references. What bet is being made — technology, UX, or workflow.]
+- **[UX/Tech/Workflow]** - [what we're doing differently and why]
 
 ## Reference Apps
 [Apps or tools that overlap with this. For each: what to preserve, what to reject, and what interaction patterns users will already expect.]
@@ -123,9 +124,17 @@ Write `BRIEF.md` in the repo root. Use this exact structure:
 [Things that are genuinely unknown and matter. Each question should be marked with its priority: 🔴 Critical / 🟡 Important / 🟢 Nice to know]
 
 ## Prototype Map
-[For each open question marked 🔴 or 🟡, suggest a prototype or experiment that could answer it. Number each entry sequentially. Format:
-1. **[question]** → Prototype: [what to build/test and what you'd learn]
-2. **[question]** → Prototype: [what to build/test and what you'd learn]]
+[For each open question marked 🔴 or 🟡, one entry per line. Format:
+- [ ] 🔴 **[question]** → Prototype: [what to build/test and what you'd learn]
+- [ ] 🟡 **[question]** → Prototype: [what to build/test and what you'd learn]]
+
+## Features & Phases
+
+### Phase 1: [Name] — [theme/goal]
+- **[Feature]** - [what it does and why it's phase 1]
+
+### Phase 2: [Name]
+- **[Feature]** - [what it does]
 
 ## Technical Notes
 [High-level technical shape: platform, key integrations, data model sketch if relevant.]
@@ -159,6 +168,7 @@ Common things to push back on during refinement:
 - Missing non-goals → "what are you explicitly *not* building?"
 - Thin differentiation → "why won't someone just add this feature to [existing tool]?"
 - Underpowered prototype map → if there are 🔴 questions with no prototype, flag it
+- Undifferentiated phases → "what specifically ships in phase 1 that doesn't require phase 2?"
 
 ---
 
